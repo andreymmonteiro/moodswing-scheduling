@@ -1,0 +1,12 @@
+C:\projectMobile\moodswing-scheduling\Moodswing.Scheduling\Moodswing.Service\bin\Debug\net5.0\Moodswing.Service.deps.json
+C:\projectMobile\moodswing-scheduling\Moodswing.Scheduling\Moodswing.Service\bin\Debug\net5.0\Moodswing.Service.dll
+C:\projectMobile\moodswing-scheduling\Moodswing.Scheduling\Moodswing.Service\bin\Debug\net5.0\Moodswing.Service.pdb
+C:\projectMobile\moodswing-scheduling\Moodswing.Scheduling\Moodswing.Service\obj\Debug\net5.0\Moodswing.Service.csproj.AssemblyReference.cache
+C:\projectMobile\moodswing-scheduling\Moodswing.Scheduling\Moodswing.Service\obj\Debug\net5.0\Moodswing.Service.GeneratedMSBuildEditorConfig.editorconfig
+C:\projectMobile\moodswing-scheduling\Moodswing.Scheduling\Moodswing.Service\obj\Debug\net5.0\Moodswing.Service.AssemblyInfoInputs.cache
+C:\projectMobile\moodswing-scheduling\Moodswing.Scheduling\Moodswing.Service\obj\Debug\net5.0\Moodswing.Service.AssemblyInfo.cs
+C:\projectMobile\moodswing-scheduling\Moodswing.Scheduling\Moodswing.Service\obj\Debug\net5.0\Moodswing.Service.csproj.CoreCompileInputs.cache
+C:\projectMobile\moodswing-scheduling\Moodswing.Scheduling\Moodswing.Service\obj\Debug\net5.0\Moodswing.Service.dll
+C:\projectMobile\moodswing-scheduling\Moodswing.Scheduling\Moodswing.Service\obj\Debug\net5.0\refint\Moodswing.Service.dll
+C:\projectMobile\moodswing-scheduling\Moodswing.Scheduling\Moodswing.Service\obj\Debug\net5.0\Moodswing.Service.pdb
+C:\projectMobile\moodswing-scheduling\Moodswing.Scheduling\Moodswing.Service\obj\Debug\net5.0\ref\Moodswing.Service.dll
