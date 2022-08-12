@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Moodswing.Domain.Models;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -12,27 +13,32 @@ namespace Moodswing.Application.Controllers
         [HttpGet]
         public IActionResult GetStatusOkAsync([FromQuery] string name)
         {
-            var devs = new List<Dictionary<string, string>>()
+
+            var devs = new CelDevelopers()
             {
-              new Dictionary<string, string>()
+                Developers = new List<Developer>() 
                 {
-                    { "name", "Andrey Monteiro" },
-                    { "cel", "Boston" }
-                },
-              new Dictionary<string, string>()
-                {
-                    { "name", "Gideval Santos" },
-                    { "cel", "Boston" }
-                },
-              new Dictionary<string, string>()
-                {
-                    { "name", "Matheus Hoffman" },
-                    { "cel", "Boston" }
+                    new Developer()
+                    {
+                        Name = "Andrey Monteiro",
+                        Cel = "Boston"
+                    },
+                    new Developer()
+                    {
+                        Name = "Gideval Santos",
+                        Cel = "Boston"
+                    },
+                    new Developer()
+                    {
+                        Name = "Matheus Hoffman",
+                        Cel = "Boston"
+                    }
                 }
             };
+            
             return Ok(
                 !string.IsNullOrWhiteSpace(name) ? 
-                    devs.Where(dev => dev.Any(item => item.Value.Contains(name))) :
+                    devs.Developers.Where(dev => dev.Name.Contains(name)) :
                     devs);
         }
     }

@@ -26,3 +26,5 @@ C:\projectMobile\moodswing-scheduling\Moodswing.Scheduling\Moodswing.Application
 C:\projectMobile\moodswing-scheduling\Moodswing.Scheduling\Moodswing.Application\obj\Debug\net5.0\Moodswing.Application.pdb
 C:\projectMobile\moodswing-scheduling\Moodswing.Scheduling\Moodswing.Application\obj\Debug\net5.0\Moodswing.Application.genruntimeconfig.cache
 C:\projectMobile\moodswing-scheduling\Moodswing.Scheduling\Moodswing.Application\obj\Debug\net5.0\ref\Moodswing.Application.dll
+C:\projectMobile\moodswing-scheduling\Moodswing.Scheduling\Moodswing.Application\bin\Debug\net5.0\Moodswing.Domain.dll
+C:\projectMobile\moodswing-scheduling\Moodswing.Scheduling\Moodswing.Application\bin\Debug\net5.0\Moodswing.Domain.pdb
