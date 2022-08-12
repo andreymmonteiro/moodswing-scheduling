@@ -24,6 +24,7 @@ namespace Moodswing.Application
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Moodswing.Application", Version = "v1" });
+                
             });
         }
 
@@ -32,7 +33,11 @@ namespace Moodswing.Application
         {
             app.UseDeveloperExceptionPage();
             app.UseSwagger();
-            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Moodswing.Application v1"));
+            app.UseSwaggerUI(c => 
+            { 
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Moodswing.Application v1");
+                c.RoutePrefix = string.Empty;
+            });
 
             app.UseHttpsRedirection();
 
