@@ -14,9 +14,7 @@ namespace Moodswing.Application.Controllers
         public IActionResult GetStatusOkAsync([FromQuery] string name)
         {
 
-            var devs = new CelDevelopers()
-            {
-                Developers = new List<Developer>() 
+            var devs = new CelDevelopers(new List<Developer>()
                 {
                     new Developer()
                     {
@@ -33,8 +31,7 @@ namespace Moodswing.Application.Controllers
                         Name = "Matheus Hoffman",
                         Cel = "Boston"
                     }
-                }
-            };
+                });
 
             var result = new CelDevelopers(!string.IsNullOrWhiteSpace(name) ?
                     devs.Developers.Where(dev => dev.Name.Contains(name)) :
