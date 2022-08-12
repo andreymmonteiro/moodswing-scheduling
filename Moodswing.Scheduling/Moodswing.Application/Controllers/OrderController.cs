@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Moodswing.Application.Controllers
 {
@@ -9,9 +10,9 @@ namespace Moodswing.Application.Controllers
     {
 
         [HttpGet]
-        public IActionResult GetStatusOkAsync()
+        public IActionResult GetStatusOkAsync([FromQuery] string name)
         {
-            return Ok(new List<Dictionary<string, string>>()
+            var devs = new List<Dictionary<string, string>>()
             {
               new Dictionary<string, string>()
                 {
@@ -28,7 +29,11 @@ namespace Moodswing.Application.Controllers
                     { "name", "Matheus Hoffman" },
                     { "cel", "Boston" }
                 }
-            });
+            };
+            return Ok(
+                !string.IsNullOrWhiteSpace(name) ? 
+                    devs.Where(dev => dev.Any(item => item.Value.Contains(name))) :
+                    devs);
         }
     }
 }
