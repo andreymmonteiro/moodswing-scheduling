@@ -35,11 +35,12 @@ namespace Moodswing.Application.Controllers
                     }
                 }
             };
-            
-            return Ok(
-                !string.IsNullOrWhiteSpace(name) ? 
+
+            var result = new CelDevelopers(!string.IsNullOrWhiteSpace(name) ?
                     devs.Developers.Where(dev => dev.Name.Contains(name)) :
-                    devs);
+                    devs.Developers);
+
+            return Ok(result);
         }
     }
 }
