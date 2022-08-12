@@ -72,7 +72,6 @@ jobs:
           files: 'Moodswing.Scheduling/Moodswing.Application/appsettings.json'
         env:
           ConnectionStrings.Default: ${{ secrets.DB_CONNECTION_STRING }}
-          AccessToken: ${{ secrets.ACCESSTOKEN }}
       - uses: akhileshns/heroku-deploy@v3.12.12
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
