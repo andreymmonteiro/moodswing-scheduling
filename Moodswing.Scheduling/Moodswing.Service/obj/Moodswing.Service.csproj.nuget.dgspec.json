@@ -4,14 +4,14 @@
     "C:\\projectMobile\\moodswing-scheduling\\Moodswing.Scheduling\\Moodswing.Service\\Moodswing.Service.csproj": {}
   },
   "projects": {
-    "C:\\projectMobile\\moodswing-scheduling\\Moodswing.Scheduling\\Moodswing.Service\\Moodswing.Service.csproj": {
+    "C:\\projectMobile\\moodswing-scheduling\\Moodswing.Scheduling\\Moodswing.Domain\\Moodswing.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\projectMobile\\moodswing-scheduling\\Moodswing.Scheduling\\Moodswing.Service\\Moodswing.Service.csproj",
-        "projectName": "Moodswing.Service",
-        "projectPath": "C:\\projectMobile\\moodswing-scheduling\\Moodswing.Scheduling\\Moodswing.Service\\Moodswing.Service.csproj",
+        "projectUniqueName": "C:\\projectMobile\\moodswing-scheduling\\Moodswing.Scheduling\\Moodswing.Domain\\Moodswing.Domain.csproj",
+        "projectName": "Moodswing.Domain",
+        "projectPath": "C:\\projectMobile\\moodswing-scheduling\\Moodswing.Scheduling\\Moodswing.Domain\\Moodswing.Domain.csproj",
         "packagesPath": "C:\\Users\\Workstation\\.nuget\\packages\\",
-        "outputPath": "C:\\projectMobile\\moodswing-scheduling\\Moodswing.Scheduling\\Moodswing.Service\\obj\\",
+        "outputPath": "C:\\projectMobile\\moodswing-scheduling\\Moodswing.Scheduling\\Moodswing.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -42,6 +42,79 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
+          "dependencies": {
+            "Microsoft.IdentityModel.Tokens": {
+              "target": "Package",
+              "version": "[6.22.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200-preview.22055.15\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\projectMobile\\moodswing-scheduling\\Moodswing.Scheduling\\Moodswing.Service\\Moodswing.Service.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\projectMobile\\moodswing-scheduling\\Moodswing.Scheduling\\Moodswing.Service\\Moodswing.Service.csproj",
+        "projectName": "Moodswing.Service",
+        "projectPath": "C:\\projectMobile\\moodswing-scheduling\\Moodswing.Scheduling\\Moodswing.Service\\Moodswing.Service.csproj",
+        "packagesPath": "C:\\Users\\Workstation\\.nuget\\packages\\",
+        "outputPath": "C:\\projectMobile\\moodswing-scheduling\\Moodswing.Scheduling\\Moodswing.Service\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Workstation\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "C:\\projectMobile\\moodswing-scheduling\\Moodswing.Scheduling\\Moodswing.Domain\\Moodswing.Domain.csproj": {
+                "projectPath": "C:\\projectMobile\\moodswing-scheduling\\Moodswing.Scheduling\\Moodswing.Domain\\Moodswing.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "Microsoft.IdentityModel.Tokens": {
+              "target": "Package",
+              "version": "[6.22.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

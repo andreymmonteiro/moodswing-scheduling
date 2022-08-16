@@ -28,3 +28,13 @@ C:\projectMobile\moodswing-scheduling\Moodswing.Scheduling\Moodswing.Application
 C:\projectMobile\moodswing-scheduling\Moodswing.Scheduling\Moodswing.Application\obj\Debug\net5.0\ref\Moodswing.Application.dll
 C:\projectMobile\moodswing-scheduling\Moodswing.Scheduling\Moodswing.Application\bin\Debug\net5.0\Moodswing.Domain.dll
 C:\projectMobile\moodswing-scheduling\Moodswing.Scheduling\Moodswing.Application\bin\Debug\net5.0\Moodswing.Domain.pdb
+C:\projectMobile\moodswing-scheduling\Moodswing.Scheduling\Moodswing.Application\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\projectMobile\moodswing-scheduling\Moodswing.Scheduling\Moodswing.Application\bin\Debug\net5.0\Microsoft.IdentityModel.Abstractions.dll
+C:\projectMobile\moodswing-scheduling\Moodswing.Scheduling\Moodswing.Application\bin\Debug\net5.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\projectMobile\moodswing-scheduling\Moodswing.Scheduling\Moodswing.Application\bin\Debug\net5.0\Microsoft.IdentityModel.Logging.dll
+C:\projectMobile\moodswing-scheduling\Moodswing.Scheduling\Moodswing.Application\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.dll
+C:\projectMobile\moodswing-scheduling\Moodswing.Scheduling\Moodswing.Application\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\projectMobile\moodswing-scheduling\Moodswing.Scheduling\Moodswing.Application\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
+C:\projectMobile\moodswing-scheduling\Moodswing.Scheduling\Moodswing.Application\bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll
+C:\projectMobile\moodswing-scheduling\Moodswing.Scheduling\Moodswing.Application\bin\Debug\net5.0\Moodswing.Service.dll
+C:\projectMobile\moodswing-scheduling\Moodswing.Scheduling\Moodswing.Application\bin\Debug\net5.0\Moodswing.Service.pdb
