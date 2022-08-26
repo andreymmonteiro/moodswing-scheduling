@@ -10,3 +10,6 @@ C:\projectMobile\moodswing-scheduling\Moodswing.Scheduling\Moodswing.Service\obj
 C:\projectMobile\moodswing-scheduling\Moodswing.Scheduling\Moodswing.Service\obj\Debug\net5.0\refint\Moodswing.Service.dll
 C:\projectMobile\moodswing-scheduling\Moodswing.Scheduling\Moodswing.Service\obj\Debug\net5.0\Moodswing.Service.pdb
 C:\projectMobile\moodswing-scheduling\Moodswing.Scheduling\Moodswing.Service\obj\Debug\net5.0\ref\Moodswing.Service.dll
+C:\projectMobile\moodswing-scheduling\Moodswing.Scheduling\Moodswing.Service\bin\Debug\net5.0\Moodswing.Domain.dll
+C:\projectMobile\moodswing-scheduling\Moodswing.Scheduling\Moodswing.Service\bin\Debug\net5.0\Moodswing.Domain.pdb
+C:\projectMobile\moodswing-scheduling\Moodswing.Scheduling\Moodswing.Service\obj\Debug\net5.0\Moodswing.Service.csproj.CopyComplete

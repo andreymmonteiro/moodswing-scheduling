@@ -1,8 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "qUvINcgJjoEGfHjcLPppCgx81noi/+bPXMBXRt9kB252zqz6AZIFZOdzw/emUIgLBCkLjUWHKMrYpsU1+0nlKw==",
+  "dgSpecHash": "HjxAOzmUpegAAtEhw7rYMvL0MS/JlL6jpnDYt2ZIBE553glG0g2jp4DICzqt1UuGlHPtpu+cMZ/eiosNQNq8+w==",
   "success": true,
   "projectFilePath": "C:\\projectMobile\\moodswing-scheduling\\Moodswing.Scheduling\\Moodswing.Service\\Moodswing.Service.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Workstation\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
+    "C:\\Users\\Workstation\\.nuget\\packages\\microsoft.identitymodel.abstractions\\6.22.0\\microsoft.identitymodel.abstractions.6.22.0.nupkg.sha512",
+    "C:\\Users\\Workstation\\.nuget\\packages\\microsoft.identitymodel.logging\\6.22.0\\microsoft.identitymodel.logging.6.22.0.nupkg.sha512",
+    "C:\\Users\\Workstation\\.nuget\\packages\\microsoft.identitymodel.tokens\\6.22.0\\microsoft.identitymodel.tokens.6.22.0.nupkg.sha512",
+    "C:\\Users\\Workstation\\.nuget\\packages\\system.security.cryptography.cng\\4.5.0\\system.security.cryptography.cng.4.5.0.nupkg.sha512"
+  ],
   "logs": []
 }

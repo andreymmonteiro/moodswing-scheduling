@@ -1,14 +1,22 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using Moodswing.Domain.Models.Authentication;
+using Moodswing.Service.Authentication;
+using System.Collections.Generic;
 
 namespace Moodswing.Application
 {
     public class Startup
     {
+        private const string BEARER = "Bearer";
+        private const string SET_TOKEN = "Set your Token";
+        private const string AUTHORIZATION = "Authorization";
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -24,8 +32,32 @@ namespace Moodswing.Application
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Moodswing.Application", Version = "v1" });
-                
+                c.AddSecurityDefinition(BEARER, new OpenApiSecurityScheme()
+                {
+                    Description = SET_TOKEN,
+                    Name = AUTHORIZATION,
+                    In = ParameterLocation.Header,
+                    Type = SecuritySchemeType.ApiKey
+                });
+
+                c.AddSecurityRequirement(new OpenApiSecurityRequirement
+                {
+                    {
+                          new OpenApiSecurityScheme
+                            {
+                                Reference = new OpenApiReference
+                                {
+                                    Type = ReferenceType.SecurityScheme,
+                                    Id = BEARER
+                                }
+                            },
+                            new List<string>()
+                    }
+                });
+
             });
+
+            AddAuthentication(services);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -43,12 +75,38 @@ namespace Moodswing.Application
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
-
+            
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
             });
+        }
+
+        private static void AddAuthentication(IServiceCollection service)
+        {
+            service.AddScoped<ISigningConfigurations, SigningConfigurations>();
+
+            service.AddAuthentication(option =>
+            {
+                option.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                option.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+                .AddJwtBearer(options =>
+                {
+                    //options.Authority = "https://localhost:6001/";
+                    options.RequireHttpsMetadata = true;
+                    options.SaveToken = true;
+                    options.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidateIssuerSigningKey = true,
+                        IssuerSigningKey = new SigningConfigurations().Key,
+                        ValidateIssuer = false,
+                        ValidateAudience = false,
+                    };
+                });
+            service.AddAuthorization();
         }
     }
 }
