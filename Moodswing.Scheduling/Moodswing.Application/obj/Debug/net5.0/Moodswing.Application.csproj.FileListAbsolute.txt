@@ -38,3 +38,15 @@ C:\projectMobile\moodswing-scheduling\Moodswing.Scheduling\Moodswing.Application
 C:\projectMobile\moodswing-scheduling\Moodswing.Scheduling\Moodswing.Application\bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll
 C:\projectMobile\moodswing-scheduling\Moodswing.Scheduling\Moodswing.Application\bin\Debug\net5.0\Moodswing.Service.dll
 C:\projectMobile\moodswing-scheduling\Moodswing.Scheduling\Moodswing.Application\bin\Debug\net5.0\Moodswing.Service.pdb
+C:\projectMobile\moodswing-scheduling\Moodswing.Scheduling\Moodswing.Application\bin\Debug\net5.0\Humanizer.dll
+C:\projectMobile\moodswing-scheduling\Moodswing.Scheduling\Moodswing.Application\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.dll
+C:\projectMobile\moodswing-scheduling\Moodswing.Scheduling\Moodswing.Application\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\projectMobile\moodswing-scheduling\Moodswing.Scheduling\Moodswing.Application\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\projectMobile\moodswing-scheduling\Moodswing.Scheduling\Moodswing.Application\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\projectMobile\moodswing-scheduling\Moodswing.Scheduling\Moodswing.Application\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.dll
+C:\projectMobile\moodswing-scheduling\Moodswing.Scheduling\Moodswing.Application\bin\Debug\net5.0\Npgsql.dll
+C:\projectMobile\moodswing-scheduling\Moodswing.Scheduling\Moodswing.Application\bin\Debug\net5.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+C:\projectMobile\moodswing-scheduling\Moodswing.Scheduling\Moodswing.Application\bin\Debug\net5.0\System.Diagnostics.DiagnosticSource.dll
+C:\projectMobile\moodswing-scheduling\Moodswing.Scheduling\Moodswing.Application\bin\Debug\net5.0\Moodswing.Data.dll
+C:\projectMobile\moodswing-scheduling\Moodswing.Scheduling\Moodswing.Application\bin\Debug\net5.0\Moodswing.Data.pdb
+C:\projectMobile\moodswing-scheduling\Moodswing.Scheduling\Moodswing.Application\bin\Debug\net5.0\AutoMapper.dll

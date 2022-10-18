@@ -1,7 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Moodswing.Domain.Models;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Moodswing.Domain.Dtos.Schedule;
+using Moodswing.Domain.Factories.ScheduleFactory;
+using Moodswing.Domain.Models.Strategies;
+using System.Threading.Tasks;
 
 namespace Moodswing.Application.Controllers
 {
@@ -9,33 +11,25 @@ namespace Moodswing.Application.Controllers
     [ApiController]
     public class OrderController : ControllerBase
     {
+        private readonly IScheduleFacade _facade;
+
+        public OrderController(IScheduleFacade facade)
+        {
+            _facade = facade;
+        }
 
         [HttpGet]
+        //[Authorize]
         public IActionResult GetStatusOkAsync([FromQuery] string name)
         {
 
-            var devs = new CelDevelopers(new List<Developer>()
-                {
-                    new Developer()
-                    {
-                        Name = "Andrey Monteiro",
-                        Cel = "Boston"
-                    },
-                    new Developer()
-                    {
-                        Name = "Gideval Santos",
-                        Cel = "Boston"
-                    },
-                    new Developer()
-                    {
-                        Name = "Matheus Hoffman",
-                        Cel = "Boston"
-                    }
-                });
+            return Ok();
+        }
 
-            var result = new CelDevelopers(!string.IsNullOrWhiteSpace(name) ?
-                    devs.Developers.Where(dev => dev.Name.Contains(name)) :
-                    devs.Developers);
+        [HttpPost]
+        public async Task<IActionResult> GetAvailabledatesAsync(ScheduleAvailableParameters request)
+        {
+            var result = await _facade.GetResultAsync<AvailableSchedulesResultDto>(request, Domain.Models.ScheduleStrategies.Available);
 
             return Ok(result);
         }

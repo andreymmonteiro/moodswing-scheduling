@@ -8,6 +8,8 @@ using Microsoft.OpenApi.Models;
 using Moodswing.Domain.Models.Authentication;
 using Moodswing.Service.Authentication;
 using System.Collections.Generic;
+using Moodswing.Application.CrossCutting.DataBase;
+using Moodswing.Application.CrossCutting;
 
 namespace Moodswing.Application
 {
@@ -16,6 +18,8 @@ namespace Moodswing.Application
         private const string BEARER = "Bearer";
         private const string SET_TOKEN = "Set your Token";
         private const string AUTHORIZATION = "Authorization";
+
+        private const string DEFAULT = "Default";
 
         public Startup(IConfiguration configuration)
         {
@@ -29,6 +33,15 @@ namespace Moodswing.Application
         {
 
             services.AddControllers();
+
+            PostgresDatabase.ConnectionString = Configuration.GetConnectionString(DEFAULT);
+            
+            services.InitializeDatabase();
+            services.AddGenericRepository();
+            services.AddScheduleStrategyConfiguration();
+            services.AddMapper();
+            services.AddScheduleService();
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Moodswing.Application", Version = "v1" });
