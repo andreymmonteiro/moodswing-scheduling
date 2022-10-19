@@ -8,7 +8,7 @@ namespace Moodswing.Application.CrossCutting
 {
     public static class ScheduleStrategiesConfiguration
     {
-        public static void AddScheduleStrategyConfiguration(this IServiceCollection services)
+        public static IServiceCollection AddScheduleStrategyConfiguration(this IServiceCollection services)
         {
             services.AddScoped<ScheduleAvailableStrategy>();
 
@@ -20,6 +20,7 @@ namespace Moodswing.Application.CrossCutting
                     _ => provider.GetRequiredService<ScheduleAvailableStrategy>()
                 };
             });
+            return services;
         }
     }
 }

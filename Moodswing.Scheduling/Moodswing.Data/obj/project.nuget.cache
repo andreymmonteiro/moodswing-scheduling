@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "R927LiZTv1SmreerAGIZPzogr1LsSSt7ccd76swqfvuRLWgyn6lEfiGe9YGK+COonKouFbugZg0+yNyr/vypXQ==",
+  "dgSpecHash": "H30aM6MJgdqCJmd3HLTV+Y6/x3u9ChrG2fpmO4PFamlGzXlVZROhb0qcDhQKjqRQ3hY0BMxTK9MbovMy7wqa+A==",
   "success": true,
   "projectFilePath": "C:\\projectMobile\\moodswing-scheduling\\Moodswing.Scheduling\\Moodswing.Data\\Moodswing.Data.csproj",
   "expectedPackageFiles": [
@@ -24,6 +24,7 @@
     "C:\\Users\\Workstation\\.nuget\\packages\\microsoft.identitymodel.abstractions\\6.22.0\\microsoft.identitymodel.abstractions.6.22.0.nupkg.sha512",
     "C:\\Users\\Workstation\\.nuget\\packages\\microsoft.identitymodel.logging\\6.22.0\\microsoft.identitymodel.logging.6.22.0.nupkg.sha512",
     "C:\\Users\\Workstation\\.nuget\\packages\\microsoft.identitymodel.tokens\\6.22.0\\microsoft.identitymodel.tokens.6.22.0.nupkg.sha512",
+    "C:\\Users\\Workstation\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
     "C:\\Users\\Workstation\\.nuget\\packages\\npgsql\\5.0.10\\npgsql.5.0.10.nupkg.sha512",
     "C:\\Users\\Workstation\\.nuget\\packages\\npgsql.entityframeworkcore.postgresql\\5.0.10\\npgsql.entityframeworkcore.postgresql.5.0.10.nupkg.sha512",
     "C:\\Users\\Workstation\\.nuget\\packages\\system.collections.immutable\\5.0.0\\system.collections.immutable.5.0.0.nupkg.sha512",

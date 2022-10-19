@@ -50,3 +50,16 @@ C:\projectMobile\moodswing-scheduling\Moodswing.Scheduling\Moodswing.Application
 C:\projectMobile\moodswing-scheduling\Moodswing.Scheduling\Moodswing.Application\bin\Debug\net5.0\Moodswing.Data.dll
 C:\projectMobile\moodswing-scheduling\Moodswing.Scheduling\Moodswing.Application\bin\Debug\net5.0\Moodswing.Data.pdb
 C:\projectMobile\moodswing-scheduling\Moodswing.Scheduling\Moodswing.Application\bin\Debug\net5.0\AutoMapper.dll
+C:\projectMobile\moodswing-scheduling\Moodswing.Scheduling\Moodswing.Application\bin\Debug\net5.0\Microsoft.DotNet.PlatformAbstractions.dll
+C:\projectMobile\moodswing-scheduling\Moodswing.Scheduling\Moodswing.Application\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\projectMobile\moodswing-scheduling\Moodswing.Scheduling\Moodswing.Application\bin\Debug\net5.0\Microsoft.Extensions.DependencyModel.dll
+C:\projectMobile\moodswing-scheduling\Moodswing.Scheduling\Moodswing.Application\bin\Debug\net5.0\Microsoft.Extensions.Http.dll
+C:\projectMobile\moodswing-scheduling\Moodswing.Scheduling\Moodswing.Application\bin\Debug\net5.0\Microsoft.Extensions.Logging.dll
+C:\projectMobile\moodswing-scheduling\Moodswing.Scheduling\Moodswing.Application\bin\Debug\net5.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\projectMobile\moodswing-scheduling\Moodswing.Scheduling\Moodswing.Application\bin\Debug\net5.0\Microsoft.Extensions.Options.dll
+C:\projectMobile\moodswing-scheduling\Moodswing.Scheduling\Moodswing.Application\bin\Debug\net5.0\Microsoft.Extensions.Primitives.dll
+C:\projectMobile\moodswing-scheduling\Moodswing.Scheduling\Moodswing.Application\bin\Debug\net5.0\Newtonsoft.Json.dll
+C:\projectMobile\moodswing-scheduling\Moodswing.Scheduling\Moodswing.Application\bin\Debug\net5.0\System.Runtime.CompilerServices.Unsafe.dll
+C:\projectMobile\moodswing-scheduling\Moodswing.Scheduling\Moodswing.Application\bin\Debug\net5.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\projectMobile\moodswing-scheduling\Moodswing.Scheduling\Moodswing.Application\bin\Debug\net5.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\projectMobile\moodswing-scheduling\Moodswing.Scheduling\Moodswing.Application\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll

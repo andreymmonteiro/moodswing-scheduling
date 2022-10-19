@@ -10,6 +10,7 @@ using Moodswing.Service.Authentication;
 using System.Collections.Generic;
 using Moodswing.Application.CrossCutting.DataBase;
 using Moodswing.Application.CrossCutting;
+using Moodswing.Domain.Models.User;
 
 namespace Moodswing.Application
 {
@@ -18,6 +19,7 @@ namespace Moodswing.Application
         private const string BEARER = "Bearer";
         private const string SET_TOKEN = "Set your Token";
         private const string AUTHORIZATION = "Authorization";
+        private const string USER_API = "UserApi:Url";
 
         private const string DEFAULT = "Default";
 
@@ -32,15 +34,22 @@ namespace Moodswing.Application
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddControllers();
+            services
+                .AddControllers()
+                .AddNewtonsoftJson();
 
             PostgresDatabase.ConnectionString = Configuration.GetConnectionString(DEFAULT);
             
-            services.InitializeDatabase();
-            services.AddGenericRepository();
-            services.AddScheduleStrategyConfiguration();
-            services.AddMapper();
-            services.AddScheduleService();
+            services
+                .InitializeDatabase()
+                .AddGenericRepository()
+                .AddScheduleStrategyConfiguration()
+                .AddMapper()
+                .AddScheduleService();
+            
+            services.AddHttpClient();
+
+            services.AddSingleton(new UserObjectApi() { BaseUrl = Configuration.GetSection(USER_API).Value});
 
             services.AddSwaggerGen(c =>
             {

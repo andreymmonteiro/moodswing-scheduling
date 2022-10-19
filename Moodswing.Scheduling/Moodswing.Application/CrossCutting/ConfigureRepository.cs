@@ -5,7 +5,7 @@ namespace Moodswing.Application.CrossCutting
 {
     public static class ConfigureRepository
     {
-        public static void AddGenericRepository(this IServiceCollection services)
+        public static IServiceCollection AddGenericRepository(this IServiceCollection services)
             => services.AddScoped(typeof(IRepository<>), typeof(BaseRepository<>));
     }
 }

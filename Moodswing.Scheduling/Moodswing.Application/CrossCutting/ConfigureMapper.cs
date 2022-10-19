@@ -6,7 +6,7 @@ namespace Moodswing.Application.CrossCutting
 {
     public static class ConfigureMapper
     {
-        public static void AddMapper(this IServiceCollection services)
+        public static IServiceCollection AddMapper(this IServiceCollection services)
             => services.AddScoped<IAutoMapperConfiguration, AutoMapperConfiguration>();
     }
 }
