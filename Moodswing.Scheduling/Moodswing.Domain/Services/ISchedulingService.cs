@@ -8,7 +8,7 @@ namespace Moodswing.Domain.Services
 {
     public interface ISchedulingService
     {
-        Task<ScheduleCreateResultDto> InsertAsync(ScheduleEntity entity);
+        Task<ScheduleCreateResultDto> InsertAsync(ScheduleBaseDto entity);
 
         Task<ScheduleUpdateResultDto> UpdateAsync(ScheduleEntity entity);
 

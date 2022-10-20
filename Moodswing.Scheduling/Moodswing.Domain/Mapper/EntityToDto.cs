@@ -18,7 +18,7 @@ namespace Moodswing.Domain.Mapper
             CreateMap<ScheduleEntity, ScheduleCreateResultDto>().ReverseMap();
             CreateMap<ScheduleEntity, ScheduleUpdateResultDto>().ReverseMap();
             CreateMap<ScheduleEntity, ScheduleBaseDto>().ReverseMap();
-            CreateMap<AppointmentTypeEntity, AppoimentTypeDto>().ReverseMap();
+            CreateMap<AppointmentTypeEntity, AppointmentTypeDto>().ReverseMap();
             CreateMap<AppointmentTypeEntity, AppoimentTypeCreateResultDto>().ReverseMap();
             CreateMap<AppointmentTypeEntity, AppoimentTypeUpdateResultDto>().ReverseMap();
             CreateMap<AppointmentTypeEntity, AppoimentTypeBaseDto>().ReverseMap();

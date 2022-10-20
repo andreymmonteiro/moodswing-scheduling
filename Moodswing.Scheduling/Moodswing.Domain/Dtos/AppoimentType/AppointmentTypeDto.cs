@@ -2,7 +2,7 @@
 
 namespace Moodswing.Domain.Dtos.AppoimentType
 {
-    public sealed class AppoimentTypeDto : AppoimentTypeBaseDto
+    public sealed class AppointmentTypeDto : AppoimentTypeBaseDto
     {
         public DateTime CreateAt { get; set; }
 

@@ -6,6 +6,8 @@ using Moodswing.Domain.Models;
 using Moodswing.Domain.Models.Strategies;
 using Moodswing.Domain.Models.User;
 using Moodswing.Domain.Services;
+using System;
+using System.Net;
 using System.Threading.Tasks;
 
 namespace Moodswing.Application.Controllers
@@ -41,10 +43,34 @@ namespace Moodswing.Application.Controllers
             return StatusCode(((int)result.StatusCode), result);
         }
 
-        //[HttpPost]
-        //public async Task<IActionResult> CreateScheduleAsync()
-        //{
+        [HttpPost]
+        public async Task<IActionResult> CreateScheduleAsync(
+            [FromHeader(Name = HttpRequestConstants.HEADER_ACCESSKEY)] string authorization,
+            ScheduleBaseDto request)
+        {
+            if (string.IsNullOrWhiteSpace(authorization))
+            {
+                return Forbid();
+            }
+            _auth.Authorization = authorization;
 
-        //}
+            ScheduleBaseResultDto result = null;
+
+            try
+            {
+                result = await _service.InsertAsync(request);
+            }
+            catch (Exception e)
+            {
+                result = new ScheduleBaseResultDto()
+                {
+                    StatusCode = HttpStatusCode.InternalServerError,
+                    Message = e.Message ?? e?.InnerException?.Message,
+                };
+            }
+            
+
+            return StatusCode(((int)result.StatusCode), result);
+        }
     }
 }

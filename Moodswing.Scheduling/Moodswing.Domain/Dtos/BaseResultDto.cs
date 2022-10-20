@@ -3,7 +3,7 @@ using System.Net;
 
 namespace Moodswing.Domain.Dtos
 {
-    public class BaseResultDto : BaseDto
+    public class BaseResultDto
     {
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public string Message { get; set; }

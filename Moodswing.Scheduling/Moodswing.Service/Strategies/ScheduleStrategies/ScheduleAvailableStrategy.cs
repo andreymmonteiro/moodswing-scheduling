@@ -4,6 +4,7 @@ using Microsoft.Net.Http.Headers;
 using Moodswing.Data.Context;
 using Moodswing.Data.Repositories;
 using Moodswing.Domain.Dtos;
+using Moodswing.Domain.Dtos.AppoimentType;
 using Moodswing.Domain.Dtos.Schedule;
 using Moodswing.Domain.Dtos.User;
 using Moodswing.Domain.Entities;
@@ -74,14 +75,27 @@ namespace Moodswing.Service.Strategies.ScheduleStrategies
                 };
             }
 
-            if (!(await ExistCompanyAsync(_scheduleStrategyParameters.CompanyId)))
+            if (!(await ExistCompanyOrPersonAsync(_scheduleStrategyParameters.PersonId, default)))
             {
                 return new AvailableSchedulesResultDto()
                 {
                     CompanyId = _scheduleStrategyParameters.CompanyId,
                     PersonId = _scheduleStrategyParameters.PersonId,
                     AvailableDates = new List<DateTime>(),
-                    Message = "Company does not exist",
+                    Message = "Person does not exist",
+                    StatusCode = HttpStatusCode.BadRequest
+                };
+            }
+            const int company = 1;
+
+            if (!(await ExistCompanyOrPersonAsync(_scheduleStrategyParameters.CompanyId, company)))
+            {
+                return new AvailableSchedulesResultDto()
+                {
+                    CompanyId = _scheduleStrategyParameters.CompanyId,
+                    PersonId = _scheduleStrategyParameters.PersonId,
+                    AvailableDates = new List<DateTime>(),
+                    Message = "Person does not exist",
                     StatusCode = HttpStatusCode.BadRequest
                 };
             }
@@ -89,9 +103,10 @@ namespace Moodswing.Service.Strategies.ScheduleStrategies
             var _db = _context.Set<ScheduleEntity>();
 
             var schedules = await _db.AsNoTracking().Where(schedule =>
-                                            schedule.ScheduleTime >= now &&
-                                            schedule.CompanyId == _scheduleStrategyParameters.CompanyId &&
-                                            schedule.PersonId == _scheduleStrategyParameters.PersonId).ToListAsync();
+                                            schedule.ScheduleTime.Day >= now.Day &&
+                                            schedule.ScheduleTime.Month >= now.Month &&
+                                            schedule.ScheduleTime.Year >= now.Year &&
+                                            schedule.CompanyId == _scheduleStrategyParameters.CompanyId).ToListAsync();
 
             var availableDays = CreateAvailableSchedule(GetNumberOfDays(_scheduleStrategyParameters, now), new OfficeHourEntity(), schedules);
 
@@ -137,59 +152,35 @@ namespace Moodswing.Service.Strategies.ScheduleStrategies
         {
             for (int timeHour = officeHour.InitialMorningHour; timeHour < officeHour.FinalMorningHour; timeHour++)
             {
-                var minutesCounter =
-                    _scheduleStrategyParameters.AppointmentType.GetConsultationTime > THIRTY_MINUTES ?
-                        2 : THIRTY_MINUTES;
+                var newActualDate = new DateTime(actualDate.Year, actualDate.Month, actualDate.Day, timeHour, default, default);
 
-                for (int timeMinute = default; timeMinute <= minutesCounter; timeMinute += THIRTY_MINUTES)
+                for (int timeMinute = default; timeMinute <= THIRTY_MINUTES; timeMinute += THIRTY_MINUTES)
                 {
-                    var newActualDate = new DateTime(actualDate.Year, actualDate.Month, actualDate.Day, timeHour, default, default);
-
+                    
                     if (officeHour.InitialMorningHour == timeHour)
                     {
                         newActualDate = newActualDate.AddMinutes(officeHour.InitialMorningMinutes);
                     }
 
-                    //Add toa method
-                    var scheduleFiltered =
-                        _scheduleStrategyParameters.AppointmentType.GetConsultationTime == THIRTY_MINUTES ?
+                    var currentMinute = timeMinute == 1 ? default : timeMinute;
 
-                        actualSchedule.Where(schedule =>
-                        (newActualDate.Hour == schedule.ScheduleTime.Hour) &&
-                        (newActualDate.Minute == schedule.ScheduleTime.Minute)).ToList() :
+                    var currentDate = new DateTime(actualDate.Year, actualDate.Month, actualDate.Day, timeHour, currentMinute, default);
 
-                            actualSchedule.Where(schedule =>
-                            (newActualDate.Hour == schedule.ScheduleTime.Hour) &&
-                            (newActualDate.Minute == schedule.ScheduleTime.Minute) &&
-                            (newActualDate.AddMinutes(THIRTY_MINUTES).Minute == schedule.ScheduleTime.Minute)).ToList();
-
-                    if (scheduleFiltered.Count <= default(int))
+                    if (!actualSchedule.Any(schedule =>
+                                schedule.ScheduleTime == currentDate))
                     {
-                        if(officeHour.InitialMorningMinutes == THIRTY_MINUTES && minutesCounter < THIRTY_MINUTES)
+                        if (IsOfficeTime(timeHour, currentMinute, officeHour.InitialMorningHour, officeHour.FinalMorningHour, officeHour.InitialMorningMinutes, officeHour.FinalMorningMinutes))
                         {
-                            availableDays.Add(new DateTime(actualDate.Year, actualDate.Month, actualDate.Day, timeHour, THIRTY_MINUTES, default));
+                            availableDays.Add(new DateTime(currentDate.Year, currentDate.Month, currentDate.Day, currentDate.Hour, currentDate.Minute, default));
                         }
-                        else if(officeHour.InitialMorningHour == timeHour && !(timeMinute < officeHour.InitialMorningMinutes))
-                        {
-                            availableDays.Add(new DateTime(actualDate.Year, actualDate.Month, actualDate.Day, timeHour, timeMinute, default));
-                        }
-                        else if (timeHour > officeHour.InitialMorningHour)
-                        {
-                            availableDays.Add(new DateTime(actualDate.Year, actualDate.Month, actualDate.Day, timeHour, timeMinute, default));
-                        }
-
                     }
-
                 }
             }
 
-            for (int timeHour = officeHour.InitialAfternoonHour; timeHour < officeHour.FinalAfternoonHour; timeHour++)
+            for (int timeHour = officeHour.InitialAfternoonHour; timeHour <= officeHour.FinalAfternoonHour; timeHour++)
             {
-                var minutesCounter =
-                    _scheduleStrategyParameters.AppointmentType.GetConsultationTime > THIRTY_MINUTES ?
-                        2 : THIRTY_MINUTES;
 
-                for (int timeMinute = default; timeMinute <= minutesCounter; timeMinute += THIRTY_MINUTES)
+                for (int timeMinute = default; timeMinute <= THIRTY_MINUTES; timeMinute += THIRTY_MINUTES)
                 {
                     var newActualDate = new DateTime(actualDate.Year, actualDate.Month, actualDate.Day, timeHour, default, default);
 
@@ -198,37 +189,30 @@ namespace Moodswing.Service.Strategies.ScheduleStrategies
                         newActualDate = newActualDate.AddMinutes(officeHour.InitialAfternoonMinutes);
                     }
 
-                    //Add toa method
-                    var scheduleFiltered =
-                        _scheduleStrategyParameters.AppointmentType.GetConsultationTime == THIRTY_MINUTES ?
+                    var currentMinute = timeMinute == 1 ? default : timeMinute;
+                    
+                    var currentDate = new DateTime(actualDate.Year, actualDate.Month, actualDate.Day, timeHour, currentMinute, default);
 
-                        actualSchedule.Where(schedule =>
-                        (newActualDate.Hour == schedule.ScheduleTime.Hour) &&
-                        (newActualDate.Minute == schedule.ScheduleTime.Minute)).ToList() :
-
-                            actualSchedule.Where(schedule =>
-                            (newActualDate.Hour == schedule.ScheduleTime.Hour) &&
-                            (newActualDate.Minute == schedule.ScheduleTime.Minute) &&
-                            (newActualDate.AddMinutes(THIRTY_MINUTES).Minute == schedule.ScheduleTime.Minute)).ToList();
-
-                    if (scheduleFiltered.Count <= default(int))
+                    if (!actualSchedule.Any(schedule =>
+                                schedule.ScheduleTime == currentDate))
                     {
-                        if (officeHour.InitialAfternoonMinutes == THIRTY_MINUTES && minutesCounter < THIRTY_MINUTES)
+                        if (IsOfficeTime(timeHour, currentMinute, officeHour.InitialAfternoonHour, officeHour.FinalAfternoonHour, officeHour.InitialAfternoonMinutes, officeHour.FinalAfternoonMinutes))
                         {
-                            availableDays.Add(new DateTime(actualDate.Year, actualDate.Month, actualDate.Day, timeHour, THIRTY_MINUTES, default));
-                        }
-                        else if(officeHour.InitialAfternoonHour == timeHour && !(timeMinute < officeHour.InitialAfternoonMinutes))
-                        {
-                            availableDays.Add(new DateTime(actualDate.Year, actualDate.Month, actualDate.Day, timeHour, timeMinute, default));
-                        }
-                        else if(timeHour > officeHour.InitialAfternoonHour)
-                        {
-                            availableDays.Add(new DateTime(actualDate.Year, actualDate.Month, actualDate.Day, timeHour, timeMinute, default));
+                            availableDays.Add(new DateTime(currentDate.Year, currentDate.Month, currentDate.Day, currentDate.Hour, currentDate.Minute, default));
                         }
                     }
-
                 }
             }
+        }
+
+        private static bool IsOfficeTime(int timeHour, int currentMinute, int initialHour, int finalHour, int initialMinute, int finalMinute)
+        {
+            var initialTime = new TimeSpan(initialHour, initialMinute, default);
+            var finalTime = new TimeSpan(finalHour, finalMinute, default);
+
+            var currentTime = new TimeSpan(timeHour, currentMinute, default);
+
+            return currentTime >= initialTime && currentTime < finalTime;
         }
 
         private ScheduleAvailableParameters ParseGeneric<T>(T value) where T : class
@@ -237,10 +221,10 @@ namespace Moodswing.Service.Strategies.ScheduleStrategies
         private ScheduleAvailableParameters CheckStrategyObject(ScheduleAvailableParameters value)
             => value is null ? new ScheduleAvailableParameters() : value;
 
-        private async Task<bool> ExistCompanyAsync(Guid companyId)
+        private async Task<bool> ExistCompanyOrPersonAsync(Guid companyOrPersonId, int personType)
         {
             var httpClient = CreateHttpRequest();
-            var content = new StringContent(CreateRequestObject(companyId), Encoding.UTF8, HttpRequestConstants.APPLICATION_JSON);
+            var content = new StringContent(CreateRequestObject(companyOrPersonId, personType), Encoding.UTF8, HttpRequestConstants.APPLICATION_JSON);
 
             using var response = await httpClient.PostAsync($"{PATH_USER_COMMAND}", content, new CancellationToken());
 
@@ -269,13 +253,13 @@ namespace Moodswing.Service.Strategies.ScheduleStrategies
             return client;
         }
 
-        private string CreateRequestObject(Guid companyId)
+        private static string CreateRequestObject(Guid companyOrPersonId, int personType)
         {
             var columns = new Dictionary<string, string>()
             {
                 { "u.name", "name" }
             };
-            var whereClause = $" u.person_type = 1 and u.id = '{companyId}' ";
+            var whereClause = $" u.person_type = {personType} and u.id = '{companyOrPersonId}' ";
 
             return JsonConvert.SerializeObject(new
             {

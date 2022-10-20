@@ -1,9 +1,8 @@
-﻿using Moodswing.Domain.Dtos.AppoimentType;
-using System;
+﻿using System;
 
 namespace Moodswing.Domain.Dtos.Schedule
 {
-    public class ScheduleBaseDto  : BaseDto
+    public class ScheduleBaseResultDto : BaseResultDto
     {
         public Guid CompanyId { get; set; }
 
@@ -11,6 +10,6 @@ namespace Moodswing.Domain.Dtos.Schedule
 
         public DateTime ScheduleTime { get; set; }
 
-        public AppointmentTypeDto AppointmentType { get; set; }
+        public Guid AppointmentTypeId { get; set; }
     }
 }
