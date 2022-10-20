@@ -62,7 +62,6 @@ namespace Moodswing.Service.Services
                 ScheduleDate = new ScheduleDate(entity.ScheduleTime),
                 CompanyId = entity.CompanyId,
                 PersonId = entity.PersonId,
-                AppointmentType = entity.AppointmentType,
             }, Domain.Models.ScheduleStrategies.Available);
 
             entity.ScheduleTime = entity.ScheduleTime.AddSeconds(-entity.ScheduleTime.Second).AddMilliseconds(-entity.ScheduleTime.Millisecond);
