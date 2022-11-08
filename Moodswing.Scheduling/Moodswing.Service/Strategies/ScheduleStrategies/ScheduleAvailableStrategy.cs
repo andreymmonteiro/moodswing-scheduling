@@ -57,7 +57,7 @@ namespace Moodswing.Service.Strategies.ScheduleStrategies
         public async Task<BaseResultDto> GetAsync<T>(T parameters)
             where T : BaseDto
         {
-            var now = DateTime.UtcNow.AddHours(TimezoneConstants.BR);
+            var now = ScheduleDate.GenerateCurrentDate();
 
             _scheduleStrategyParameters = ParseGeneric(parameters);
 
@@ -119,12 +119,12 @@ namespace Moodswing.Service.Strategies.ScheduleStrategies
         private static int GetNumberOfDays(ScheduleAvailableParameters parameters, DateTime now)
         {
             var days = parameters.ScheduleDate.GetScheduleDate - now.Date;
-            return days.Days;
+            return days.Days == default ? 1 : days.Days + 1;
         }
 
         private IEnumerable<DateTime> CreateAvailableSchedule(int numberDays, OfficeHourEntity officeHour, List<ScheduleEntity> schedules)
         {
-            var dateNow = DateTime.UtcNow.AddHours(TimezoneConstants.BR);
+            var dateNow = ScheduleDate.GenerateCurrentDate();
 
             var availableDays = new List<DateTime>();
 
@@ -132,7 +132,7 @@ namespace Moodswing.Service.Strategies.ScheduleStrategies
             {
                 var actualDate = dateNow.AddDays(indexDay);
 
-                if (actualDate.DayOfWeek == DayOfWeek.Saturday || actualDate.DayOfWeek == DayOfWeek.Monday)
+                if (actualDate.DayOfWeek == DayOfWeek.Saturday || actualDate.DayOfWeek == DayOfWeek.Sunday)
                 {
                     continue;
                 }
