@@ -11,6 +11,8 @@ namespace Moodswing.Application.CrossCutting
     {
         public static IServiceCollection AddScheduleService(this IServiceCollection services)
         {
+            services.AddScoped<INotAvailableScheduleUseCase, NotAvailableScheduleUseCase>();
+
             services.AddTransient<ISchedulingService, SchedulingService>();
             services.AddTransient<IScheduleFacade, ScheduleFacade>();
 

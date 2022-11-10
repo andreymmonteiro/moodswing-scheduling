@@ -63,3 +63,7 @@ C:\projectMobile\moodswing-scheduling\Moodswing.Scheduling\Moodswing.Application
 C:\projectMobile\moodswing-scheduling\Moodswing.Scheduling\Moodswing.Application\bin\Debug\net5.0\Microsoft.AspNetCore.JsonPatch.dll
 C:\projectMobile\moodswing-scheduling\Moodswing.Scheduling\Moodswing.Application\bin\Debug\net5.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 C:\projectMobile\moodswing-scheduling\Moodswing.Scheduling\Moodswing.Application\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll
+C:\projectMobile\moodswing-scheduling\Moodswing.Scheduling\Moodswing.Application\bin\Debug\net5.0\Dapper.dll
+C:\projectMobile\moodswing-scheduling\Moodswing.Scheduling\Moodswing.Application\bin\Debug\net5.0\Dapper.Contrib.dll
+C:\projectMobile\moodswing-scheduling\Moodswing.Scheduling\Moodswing.Application\bin\Debug\net5.0\Moodswing.Application.xml
+C:\projectMobile\moodswing-scheduling\Moodswing.Scheduling\Moodswing.Application\obj\Debug\net5.0\Moodswing.Application.xml

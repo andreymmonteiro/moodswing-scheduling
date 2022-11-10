@@ -9,7 +9,5 @@ namespace Moodswing.Domain.Dtos.Schedule
         public Guid PersonId { get; set; }
 
         public DateTime ScheduleTime { get; set; }
-
-        public Guid AppointmentTypeId { get; set; }
     }
 }

@@ -15,5 +15,15 @@ namespace Moodswing.Domain.Dtos
             get => _statusCode == default ? HttpStatusCode.OK : _statusCode; 
             set => _statusCode = value; 
         }
+
+        public BaseResultDto(string message, HttpStatusCode statusCode)
+        {
+            Message = message;
+            _statusCode = statusCode;
+        }
+
+        public BaseResultDto()
+        {
+        }
     }
 }

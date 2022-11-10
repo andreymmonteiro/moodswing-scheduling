@@ -11,6 +11,9 @@ using System.Collections.Generic;
 using Moodswing.Application.CrossCutting.DataBase;
 using Moodswing.Application.CrossCutting;
 using Moodswing.Domain.Models.User;
+using System.Reflection;
+using System.IO;
+using System;
 
 namespace Moodswing.Application
 {
@@ -20,6 +23,10 @@ namespace Moodswing.Application
         private const string SET_TOKEN = "Set your Token";
         private const string AUTHORIZATION = "Authorization";
         private const string USER_API = "UserApi:Url";
+        private const string V1 = "v1";
+        private const string APPLICATION = "Moodswing.Application";
+        private const string JSON_PATH = "/swagger/v1/swagger.json";
+        private const string XML_EXTENSIONS = ".xml";
 
         private const string DEFAULT = "Default";
 
@@ -45,7 +52,8 @@ namespace Moodswing.Application
                 .AddGenericRepository()
                 .AddScheduleStrategyConfiguration()
                 .AddMapper()
-                .AddScheduleService();
+                .AddScheduleService()
+                .AddDappeService();
             
             services.AddHttpClient();
 
@@ -53,7 +61,11 @@ namespace Moodswing.Application
 
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Moodswing.Application", Version = "v1" });
+                c.SwaggerDoc(V1, new OpenApiInfo { Title = APPLICATION, Version = V1 });
+                var xmlFile = Assembly.GetExecutingAssembly().GetName().Name + XML_EXTENSIONS;
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                c.IncludeXmlComments(xmlPath);
+
                 c.AddSecurityDefinition(BEARER, new OpenApiSecurityScheme()
                 {
                     Description = SET_TOKEN,

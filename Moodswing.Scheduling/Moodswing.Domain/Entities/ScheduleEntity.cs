@@ -15,10 +15,5 @@ namespace Moodswing.Domain.Entities
         
         [Column(ScheduleConstants.SCHEDULE_TIME)]
         public DateTime ScheduleTime { get; set; }
-
-        [Column(ScheduleConstants.APPOINTMENT_TYPE_ID)]
-        public Guid AppointmentTypeId { get; set; }
-
-        public AppointmentTypeEntity AppointmentType { get; set; }
     }
 }

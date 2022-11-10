@@ -13,7 +13,6 @@ namespace Moodswing.Data.Context
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<ScheduleEntity>();
-            modelBuilder.Entity<AppointmentTypeEntity>();
             base.OnModelCreating(modelBuilder);
         }
     }

@@ -13,7 +13,7 @@ namespace Moodswing.Data.Context
         public MyContext CreateDbContext(string[] args)
         {
             var optionsBuidler = new DbContextOptionsBuilder<MyContext>();
-            optionsBuidler.UseNpgsql(ConnectionString, options => 
+            optionsBuidler.UseNpgsql(HMG, options => 
             {
                 options.EnableRetryOnFailure(MAX_RETRY_COUNT, TimeSpan.FromSeconds(MAX_RETRY_DELAY), null);
             });

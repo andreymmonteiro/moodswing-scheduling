@@ -1,10 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "Q5N0D+y5b6tpFL+VIWUK9yBfXP//kdrlYkBgDGg4CXHvzAn66oOsoiWLXhodfOnU7+tj71iaiuyk19vtpl2Axw==",
+  "dgSpecHash": "6G4LYyCWu+7NxRuxhzj9VXRd4g9VtbPgI4P0h31tFUpngqvGOpa1TSHuaAo8Nnl4bjLRSeAgZPtpUbu5KRXTig==",
   "success": true,
   "projectFilePath": "C:\\projectMobile\\moodswing-scheduling\\Moodswing.Scheduling\\Moodswing.Service\\Moodswing.Service.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Workstation\\.nuget\\packages\\automapper\\12.0.0\\automapper.12.0.0.nupkg.sha512",
+    "C:\\Users\\Workstation\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512",
+    "C:\\Users\\Workstation\\.nuget\\packages\\dapper.contrib\\2.0.78\\dapper.contrib.2.0.78.nupkg.sha512",
     "C:\\Users\\Workstation\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\Workstation\\.nuget\\packages\\microsoft.aspnetcore.authentication.core\\2.2.0\\microsoft.aspnetcore.authentication.core.2.2.0.nupkg.sha512",
     "C:\\Users\\Workstation\\.nuget\\packages\\microsoft.aspnetcore.authorization\\2.2.0\\microsoft.aspnetcore.authorization.2.2.0.nupkg.sha512",

@@ -6,7 +6,7 @@
 
         public const string COMPANY_ID = "company_id";
 
-        public const string PERSON_ID = "person_Id";
+        public const string PERSON_ID = "person_id";
 
         public const string SCHEDULE_TIME = "schedule_time";
 
